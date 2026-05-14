@@ -1,0 +1,160 @@
+<head>
+    <title>Fruits & Vegetables </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+          <a href = "index.html">
+            <img src="image/logo.png" alt="FNF Logo"> 
+          </a>
+        </div>
+        <div class="delivery-time">
+            <select class="location-select">
+                <option disabled selected>Select Delivery Location</option>
+                <option>Patna, Bihar</option>
+                <option>Ranchi, Jharkhand</option>
+                <option>Guntur, Andhra Pradesh</option>
+                <option>Noida, Delhi</option>
+                <option>Pune, Maharashtra</option>
+            </select>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Shop Sustainably, Search Responsibly">
+        </div>
+        <div class="buttons">
+            <div class="category-select">
+                <select class="category-dropdown" onchange="location = this.value;">
+                    <option disabled selected>Categories</option>
+                    <option value="fruits.html">Fruits</option>
+                    <option value="Personal product.html">Personal Care</option>
+                    <option value="Medicinal plant.html">Medicinal Plant</option>
+                    <option value="kitchen.html">Kitchen</option>
+                </select>
+            </div>
+            <a href="#" id="account-btn"><i class="fas fa-user"></i> Account</a>
+        <div id="login-popup" class="login-popup">
+            <div class="login-box" id="login-box">
+                <span class="close-btn" onclick="closeLoginPopup()">×</span>
+                <div id="step-1">
+                    <h3>Sign In</h3>
+                    <label for="mobile">Mobile Number:</label>
+                    <input type="tel" id="mobile" placeholder="Enter mobile number" maxlength="10">
+                    <button onclick="requestOTP()">Get OTP</button>
+                </div>
+                <div id="step-2" style="display: none;">
+                    <h3>Enter OTP</h3>
+                    <label for="otp">OTP:</label>
+                    <input type="text" id="otp" placeholder="Enter OTP" maxlength="6">
+                    <button onclick="verifyOTP()">Verify</button>
+                </div>
+            </div>
+        </div>
+            <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i> <p><span id="cart-count">0</span> items</p></a>
+        </div>
+    </div>
+  <div class="container">
+    <div class="card">
+      <div class="discount">15% OFF</div>
+      <img src="https://5.imimg.com/data5/KH/OJ/MY-10247618/fresh-bell-pepper.jpg" alt="Bell pepper">
+      <h4>Bell pepper</h4>
+      <p class="price">₹68/Kg <span class="old-price">₹80</span></p>
+      <button onclick="addToCart('Bell pepper', 68,'https://5.imimg.com/data5/KH/OJ/MY-10247618/fresh-bell-pepper.jpg')">Add to bag</button>
+    </div>
+    
+    <div class="card">
+      <div class="discount">20% OFF</div>
+      <img src="https://static.vecteezy.com/system/resources/previews/030/663/871/large_2x/carrots-with-transparent-background-high-quality-ultra-hd-free-photo.jpg" alt="Carrot">
+      <br><h4>Carrot</h4>
+      <p class="price">₹40/Kg <span class="old-price">₹50</span></p>
+      <button onclick="addToCart('Carrot', 40,'https://static.vecteezy.com/system/resources/previews/030/663/871/large_2x/carrots-with-transparent-background-high-quality-ultra-hd-free-photo.jpg')">Add to Bag</button>
+    </div>
+    
+    <div class="card">
+      <div class="discount">10% OFF</div>
+      <img src="https://organicmandya.com/cdn/shop/files/Cauliflower.jpg?v=1721371600&width=1024" alt="Cauliflower">
+      <h4>Cauliflower</h4>
+      <p class="price">₹54/Kg <span class="old-price">₹60</span></p>
+      <button onclick="addToCart('Cauliflower', 54,'https://organicmandya.com/cdn/shop/files/Cauliflower.jpg?v=1721371600&width=1024')">Add to Bag</button>
+    </div>
+    
+    <div class="card">
+      <div class="discount">15% OFF</div>
+      <img src="https://m.media-amazon.com/images/I/41QKCkQ2A5L._AC_UF1000,1000_QL80_.jpg" alt="Potato">
+      <h4>Potato</h4>
+      <p class="price">₹34/Kg <span class="old-price">₹40</span></p>
+      <button onclick="addToCart('Potato', 34,'https://m.media-amazon.com/images/I/41QKCkQ2A5L._AC_UF1000,1000_QL80_.jpg')">Add to Bag</button>
+    </div>
+    
+    <div class="card">
+      <div class="discount">20% OFF</div>
+      <img src="https://5.imimg.com/data5/NR/KY/MY-48969557/fresh-tomato.png" alt="Tomato">
+      <h4>Tomato</h4>
+      <p class="price">₹36/Kg <span class="old-price">₹45</span></p>
+      <button onclick="addToCart('Tomato', 36,'https://5.imimg.com/data5/NR/KY/MY-48969557/fresh-tomato.png')">Add to Bag</button>
+    </div>
+    
+    <div class="card">
+      <div class="discount">10% OFF</div>
+      <img src="https://cdn.britannica.com/25/78225-050-1781F6B7/broccoli-florets.jpg" alt="Broccoli">
+      <h4>Broccoli</h4>
+      <p class="price">₹68/Kg <span class="old-price">₹75</span></p>
+      <button onclick="addToCart('Broccoli', 68,'https://cdn.britannica.com/25/78225-050-1781F6B7/broccoli-florets.jpg')">Add to Bag</button>
+    </div>
+    
+    <div class="card">
+      <div class="discount">10% OFF</div>
+      <img src="https://static.vecteezy.com/system/resources/previews/044/813/519/non_2x/canary-melon-isolated-on-transparent-background-png.png" alt="Canary Melon">
+      <h4>Canary Melon</h4>
+      <p class="price">₹108/Kg <span class="old-price">₹120</span></p>
+      <button onclick="addToCart('Canary Melon', 108,'https://static.vecteezy.com/system/resources/previews/044/813/519/non_2x/canary-melon-isolated-on-transparent-background-png.png')">Add to Bag</button>
+    </div>
+    
+    <div class="card">
+      <div class="discount">50% OFF</div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcYJZj7UiuifDeFPKIgGAPC2B8VaGzUsySkg&s" alt="Lemon">
+      <h4>Lemon</h4>
+      <p class="price">₹10/Pc <span class="old-price">₹20</span></p>
+      <button onclick="addToCart('Lemon', 10,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcYJZj7UiuifDeFPKIgGAPC2B8VaGzUsySkg&s')">Add to Bag</button>
+
+    </div>
+    
+    <div class="card">
+      <div class="discount">15% OFF</div>
+      <img src="https://i.pinimg.com/736x/2d/4c/5e/2d4c5e7a337803b46e8567caa428d365.jpg" alt="Mandarin">
+      <h4>Orange</h4>
+      <p class="price">₹87/Kg <span class="old-price">₹90</span></p>
+      <button onclick="addToCart('Orange', 87,'https://i.pinimg.com/736x/2d/4c/5e/2d4c5e7a337803b46e8567caa428d365.jpg')">Add to Bag</button>
+    </div>
+    
+    <div class="card">
+      <div class="discount">25% OFF</div>
+      <img src="https://toppng.com/uploads/preview/papaye-11551061336aip1gkvzgc.png" alt="Papaya">
+      <h4>Papaya</h4>
+      <p class="price">₹60/Kg <span class="old-price">₹80</span></p>
+      <button onclick="addToCart('Papaya', 60,'https://toppng.com/uploads/preview/papaye-11551061336aip1gkvzgc.png')">Add to Bag</button>
+    </div>
+    
+    <div class="card">
+      <div class="discount">20% OFF</div>
+      <img src="https://static.vecteezy.com/system/resources/previews/029/200/200/non_2x/mango-transparent-background-free-png.png" alt="Mango">
+      <h4>Mango</h4>
+      <p class="price">₹80/Kg <span class="old-price">₹100</span></p>
+      <button onclick="addToCart('Mango', 80,'https://static.vecteezy.com/system/resources/previews/029/200/200/non_2x/mango-transparent-background-free-png.png')">Add to Bag</button>
+
+    </div>
+    
+    <div class="card">
+      <div class="discount">30% OFF</div>
+      <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/25d45014-8cc3-4c98-b02c-5a0cf3a55ddd/ddfrpyt-7b2f2fe3-9f1c-4048-98a2-f26a877dd5de.png/v1/fill/w_900,h_667/white_grapes_on_a_transparent_background__by_prussiaart_ddfrpyt-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjY3IiwicGF0aCI6IlwvZlwvMjVkNDUwMTQtOGNjMy00Yzk4LWIwMmMtNWEwY2YzYTU1ZGRkXC9kZGZycHl0LTdiMmYyZmUzLTlmMWMtNDA0OC05OGEyLWYyNmE4NzdkZDVkZS5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.z6E_mhgn3Ilm-gpUl8ObR8EpqamZR7-yAifyiPTcKqE" alt="Grapes">
+      <h4>Grapes</h4>
+      <p class="price">₹98/Kg <span class="old-price">₹140</span></p>
+      <button onclick="addToCart('Grapes', 98,'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/25d45014-8cc3-4c98-b02c-5a0cf3a55ddd/ddfrpyt-7b2f2fe3-9f1c-4048-98a2-f26a877dd5de.png/v1/fill/w_900,h_667/white_grapes_on_a_transparent_background__by_prussiaart_ddfrpyt-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjY3IiwicGF0aCI6IlwvZlwvMjVkNDUwMTQtOGNjMy00Yzk4LWIwMmMtNWEwY2YzYTU1ZGRkXC9kZGZycHl0LTdiMmYyZmUzLTlmMWMtNDA0OC05OGEyLWYyNmE4NzdkZDVkZS5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.z6E_mhgn3Ilm-gpUl8ObR8EpqamZR7-yAifyiPTcKqE')">Add to Bag</button>
+    </div>
+    
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

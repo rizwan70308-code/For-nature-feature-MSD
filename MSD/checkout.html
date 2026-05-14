@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Checkout - For Nature Future</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkout.css"> <!-- Separate checkout styles -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href = "index.html">
+            <img src="image/logo.png" alt="FNF Logo"> 
+          </a>
+        </div>
+        <div class="delivery-time">
+            <select class="location-select">
+                <option disabled selected>Select Delivery Location</option>
+                <option>Patna, Bihar</option>
+                <option>Ranchi, Jharkhand</option>
+                <option>Guntur, Andhra Pradesh</option>
+                <option>Noida, Delhi</option>
+                <option>Pune, Maharashtra</option>
+            </select>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Shop Sustainably, Search Responsibly">
+        </div>
+        <div class="buttons">
+            <div class="category-select">
+                <select class="category-dropdown" onchange="location = this.value;">
+                    <option disabled selected>Categories</option>
+                    <option value="fruits.html">Fruits</option>
+                    <option value="Personal product.html">Personal Care</option>
+                    <option value="Medicinal plant.html">Medicinal Plant</option>
+                    <option value="kitchen.html">Kitchen</option>
+                </select>
+            </div>
+            <a href="login.html"><i class="fas fa-user"></i> Account</a>
+            <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i> <p><span id="cart-count">0</span> items</p></a>
+        </div>
+    </div>
+    <div class="checkout-page">
+        <h1>Payment Gateway</h1>
+        <p>Click below to proceed with payment securely using Razorpay.</p>
+        <button id="rzp-button">Pay Now</button>
+    </div>
+
+    <script>
+    // Get total from localStorage and convert to number
+    var totalAmount = parseFloat(localStorage.getItem('cartTotal') || '0');
+    document.addEventListener('DOMContentLoaded', () => {
+    const cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+    const cartCountElements = document.querySelectorAll('#cart-count');
+    cartCountElements.forEach(element => {
+        element.textContent = cartCount;
+    });
+});
+
+
+    if (totalAmount <= 0) {
+        alert('Cart is empty or payment total not found.');
+        window.location.href = "cart.html";  // Redirect back to cart
+    }
+
+    var options = {
+        "key": "rzp_test_RWElq2skYCwTUN",
+        "amount": Math.round(totalAmount * 100),  // amount in paise, rounded
+        "currency": "INR",
+        "name": "For Nature Future",
+        "description": "Organic Products Purchase",
+        "image": "image/logo.png",
+        "handler": function (response){
+            alert("✅ Payment Successful! Payment ID: " + response.razorpay_payment_id);
+            localStorage.removeItem('cartItems');
+            localStorage.removeItem('cartCount');
+            localStorage.removeItem('cartTotal');
+            window.location.href = "index.html";
+        },
+        "prefill": {
+            "name": "Customer Name",
+            "email": "customer@example.com",
+            "contact": "9999999999"
+        },
+        "theme": {
+            "color": "#3ca92d"
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    document.getElementById('rzp-button').onclick = function(e){
+        rzp.open();
+        e.preventDefault();
+    };
+</script>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="address">
+            <p>For Nature Future, 123 Boring Road, Patna, BIHAR, India</p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 For Nature Future. All Rights Reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

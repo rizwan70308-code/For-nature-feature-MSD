@@ -1,0 +1,163 @@
+<head>
+    <title>Personal Product</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="image/logo.png" alt="FNF Logo"> 
+            </a>
+        </div>
+        <div class="delivery-time">
+            <select class="location-select">
+                <option disabled selected>Select Delivery Location</option>
+                <option>Patna, Bihar</option>
+                <option>Ranchi, Jharkhand</option>
+                <option>Guntur, Andhra Pradesh</option>
+                <option>Noida, Delhi</option>
+                <option>Pune, Maharashtra</option>
+            </select>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Shop Sustainably, Search Responsibly">
+        </div>
+        <div class="buttons">
+            <div class="category-select">
+                <select class="category-dropdown" onchange="location = this.value;">
+                    <option disabled selected>Categories</option>
+                    <option value="fruits.html">Fruits</option>
+                    <option value="Personal product.html">Personal Care</option>
+                    <option value="Medicinal plant.html">Medicinal Plant</option>
+                    <option value="kitchen.html">Kitchen</option>
+                </select>
+            </div>
+            <a href="#" id="account-btn"><i class="fas fa-user"></i> Account</a>
+        <div id="login-popup" class="login-popup">
+            <div class="login-box" id="login-box">
+                <span class="close-btn" onclick="closeLoginPopup()">×</span>
+                <div id="step-1">
+                    <h3>Sign In</h3>
+                    <label for="mobile">Mobile Number:</label>
+                    <input type="tel" id="mobile" placeholder="Enter mobile number" maxlength="10">
+                    <button onclick="requestOTP()">Get OTP</button>
+                </div>
+                <div id="step-2" style="display: none;">
+                    <h3>Enter OTP</h3>
+                    <label for="otp">OTP:</label>
+                    <input type="text" id="otp" placeholder="Enter OTP" maxlength="6">
+                    <button onclick="verifyOTP()">Verify</button>
+                </div>
+            </div>
+        </div>
+            <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i> <p><span id="cart-count">0</span> items</p></a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="discount">20% OFF</div>
+            <img src="image/Bamboo_Tooth_brush.png" alt="Bamboo ToothBrush">
+            <h4>Bamboo ToothBrush</h4>
+            <p>(4 pcs)</p>
+            <p class="price">₹299 <span class="old-price">₹349</span></p>
+            <button onclick="addToCart('Bamboo ToothBrush', 299, 'image/Bamboo_Tooth_brush.png')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">15% OFF</div>
+            <img src="image/Bamboo_tongue_Cleaner.png" alt="Bamboo Tongue Cleaner">
+            <h4>Bamboo Tongue Cleaner</h4>
+            <p>1 Pcs</p>
+            <p class="price">₹49 <span class="old-price">₹79</span></p>
+            <button onclick="addToCart('Bamboo Tongue Cleaner', 49, 'image/Bamboo_tongue_Cleaner.png')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">10% OFF</div>
+            <img src="image/Bamboo_Comb.png" alt="Wooden Holder">
+            <h4>Wooden Holder</h4>
+            <p>1 Pcs</p>
+            <p class="price">₹99 <span class="old-price">₹170</span></p>
+            <button onclick="addToCart('Wooden Holder', 99, 'image/Bamboo_Comb.png')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">25% OFF</div>
+            <img src="image/Bamboo__Organic_Comb.png" alt="Neem Comb">
+            <h4>Neem Comb</h4>
+            <p>1 pc</p>
+            <p class="price">₹150 <span class="old-price">₹190</span></p>
+            <button onclick="addToCart('Neem Comb', 150, 'image/Bamboo__Organic_Comb.png')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">30% OFF</div>
+            <img src="image/Bamboo_Wooden_Brush.png" alt="Bamboo Comb">
+            <h4>Bamboo Comb</h4>
+            <p>1 pc</p>
+            <p class="price">₹250 <span class="old-price">₹350</span></p>
+            <button onclick="addToCart('Bamboo Comb', 250, 'image/Bamboo_Wooden_Brush.png')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">18% OFF</div>
+            <img src="image/Coconut_oil.png" alt="Coconut Hair Oil">
+            <h4>Coconut Hair Oil</h4>
+            <p>(100ml)</p>
+            <p class="price">₹120 <span class="old-price">₹150</span></p>
+            <button onclick="addToCart('Coconut Hair Oil', 120, 'image/Coconut_oil.png')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">12% OFF</div>
+            <img src="image/Shampoo.png" alt="Organic Shampoo">
+            <h4>Organic Shampoo</h4>
+            <p>(150ml)</p>
+            <p class="price">₹299 <span class="old-price">₹340</span></p>
+            <button onclick="addToCart('Organic Shampoo', 299, 'image/Shampoo.png')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">22% OFF</div>
+            <img src="image/balm-mahalo.jpg" alt="Balm">
+            <h4>Balm</h4>
+            <p>(100g)</p>
+            <p class="price">₹180 <span class="old-price">₹230</span></p>
+            <button onclick="addToCart('Balm', 180, 'image/balm-mahalo.jpg')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">28% OFF</div>
+            <img src="image/Skin care.png" alt="Skin Care">
+            <h4>Skin Care</h4>
+            <p>(250ml)</p>
+            <p class="price">₹89 <span class="old-price">₹120</span></p>
+            <button onclick="addToCart('Skin Care', 89, 'image/Skin care.png')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">25% OFF</div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZQklmBbj1DiUjGHO7uuzHJkqQxzk6o61ctA&s" alt="Lipsbalm">
+            <h4>Lipsbalm</h4>
+            <p>(1 pc)</p>
+            <p class="price">₹399 <span class="old-price">₹500</span></p>
+            <button onclick="addToCart('Lipsbalm', 399, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZQklmBbj1DiUjGHO7uuzHJkqQxzk6o61ctA&s')">Add to Bag</button>
+        </div>
+
+        <div class="card">
+            <div class="discount">25% OFF</div>
+            <img src="image/Bath Soap.png" alt="Bath Organic Soap">
+            <h4>Bath Organic Soap</h4>
+            <p>(1 pc)</p>
+            <p class="price">₹499 <span class="old-price">₹500</span></p>
+            <button onclick="addToCart('Bath Organic Soap', 499, 'image/Bath Soap.png')">Add to Bag</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

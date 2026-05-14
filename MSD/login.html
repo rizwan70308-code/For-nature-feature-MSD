@@ -1,0 +1,159 @@
+<head>
+    <title>Login | Plastic-Free Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: 
+                linear-gradient(rgba(123, 215, 123, 0.9), rgba(240, 255, 240, 0.7)),
+                url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(176, 207, 175, 0.85);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(201, 202, 227, 0.15);
+            width: 380px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo {
+            width: 380px;  
+            height: auto; 
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #2e8b57;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .tagline {
+            color: #3a5a40;
+            margin-bottom: 30px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #3a5a40;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d8e2dc;
+            border-radius: 8px;
+            font-size: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2e8b57;
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+        }
+
+        button {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3a5a40;
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #588157;
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .leaf-icon {
+            color: #2e8b57;
+            font-size: 18px;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="C:\Users\Hp\OneDrive\Desktop\Field Project\image\logo.png" alt="Plastic-Free Future Logo" class="logo">
+        <h1>Welcome Back</h1>
+        <p class="tagline">Join our mission for a plastic-free planet</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            
+            <button type="submit">Login <span class="leaf-icon">🌱</span></button>
+        </form>
+        
+        <div class="footer">
+            New to our mission? <a href="#">Join the movement</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your login logic here
+            alert('Welcome to our plastic-free community!');
+            // window.location.href = "dashboard.html";
+        });
+    </script>
+</body>
+</html>
